@@ -5,7 +5,11 @@ include $(CLEAR_VARS)
 ifeq ($(TARGET_QCOM_DISPLAY_VARIANT),caf)
 DISPLAY := display-caf
 else
+ifeq ($(TARGET_QCOM_DISPLAY_VARIANT),legacy)
+DISPLAY := display-legacy
+else
 DISPLAY := display/$(TARGET_BOARD_PLATFORM)
+endif
 endif
 
 LOCAL_SRC_FILES := \

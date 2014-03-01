@@ -54,6 +54,7 @@ static ptrdiff_t x;
 #endif
 #include <binder/MemoryHeapBase.h>
 #include <ui/ANativeObjectBase.h>
+#include <binder/IServiceManager.h>
 extern "C"{
 #include<utils/Log.h>
 }

@@ -10571,13 +10571,13 @@ int omx_vdec::unsecureDisplay(int mode) {
 int omx_vdec::set_turbo_mode(bool mode)
 {
     if (mode == (int)true) {
-        struct vdec_ioctl_msg ioctl_msg;
+        /* struct vdec_ioctl_msg ioctl_msg;
         DEBUG_PRINT_HIGH("Enable Turbo mode");
         if (ioctl(drv_ctx.video_driver_fd,VDEC_IOCTL_SET_PERF_CLK,
             &ioctl_msg) < 0) {
-            DEBUG_PRINT_ERROR("ioctl VDEC_IOCTL_SET_PERF_CLK failed");
+            DEBUG_PRINT_ERROR("ioctl VDEC_IOCTL_SET_PERF_CLK failed"); */
             return 1;
-        }
+        //}
     } else {
         DEBUG_PRINT_HIGH("Disable Turbo mode not suported");
         return 1;

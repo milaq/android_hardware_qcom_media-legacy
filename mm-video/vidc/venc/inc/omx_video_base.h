@@ -209,7 +209,6 @@ public:
   virtual bool dev_loaded_stop_done(void) = 0;
   virtual bool is_secure_session(void) = 0;
   virtual bool dev_get_uncache_flag(void) = 0;
-  virtual bool dev_get_capability_ltrcount(OMX_U32 *, OMX_U32 *, OMX_U32 *) = 0;
 #ifdef _ANDROID_ICS_
   void omx_release_meta_buffer(OMX_BUFFERHEADERTYPE *buffer);
 #endif
@@ -388,8 +387,7 @@ public:
     OMX_COMPONENT_GENERATE_RESUME_DONE = 0xF,
     OMX_COMPONENT_GENERATE_STOP_DONE = 0x10,
     OMX_COMPONENT_GENERATE_HARDWARE_ERROR = 0x11,
-    OMX_COMPONENT_GENERATE_ETB_OPQ = 0x12,
-    OMX_COMPONENT_GENERATE_LTRUSE_FAILED = 0x13
+    OMX_COMPONENT_GENERATE_ETB_OPQ = 0x12
   };
 
   struct omx_event
@@ -545,10 +543,6 @@ public:
   OMX_VIDEO_PARAM_INTRAREFRESHTYPE m_sIntraRefresh;
   OMX_U32 m_sExtraData;
   OMX_U32 m_input_msg_id;
-  QOMX_VIDEO_PARAM_LTRMODE_TYPE m_sParamLTRMode;
-  QOMX_VIDEO_PARAM_LTRCOUNT_TYPE m_sParamLTRCount;
-  QOMX_VIDEO_CONFIG_LTRPERIOD_TYPE m_sConfigLTRPeriod;
-  QOMX_VIDEO_CONFIG_LTRUSE_TYPE m_sConfigLTRUse;
   // fill this buffer queue
   omx_cmd_queue         m_ftb_q;
   // Command Q for rest of the events
@@ -586,7 +580,6 @@ public:
   extra_data_handler extra_data_handle;
   unsigned int extradata_len[MAX_NUM_OUTPUT_BUFFERS];
   unsigned int extradata_offset[MAX_NUM_OUTPUT_BUFFERS];
-  unsigned int extradata_ltrid[MAX_NUM_OUTPUT_BUFFERS];
   static int m_venc_num_instances;
   static int m_venc_ion_devicefd;
   static pthread_mutex_t m_venc_ionlock;

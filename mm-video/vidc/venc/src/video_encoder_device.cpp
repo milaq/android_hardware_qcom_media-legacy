@@ -1854,13 +1854,13 @@ bool venc_dev::venc_set_inband_video_header(OMX_BOOL enable)
 
 bool venc_dev::venc_set_bitstream_restrict_in_vui(OMX_BOOL enable)
 {
-  venc_ioctl_msg ioctl_msg = {NULL, NULL};
+  /*venc_ioctl_msg ioctl_msg = {NULL, NULL};
   DEBUG_PRINT_HIGH("Set bistream_restrict in vui: %d", enable);
   if(ioctl(m_nDriver_fd, VEN_IOCTL_SET_VUI_BITSTREAM_RESTRICT_FLAG, (void *)&ioctl_msg) < 0)
   {
-    DEBUG_PRINT_ERROR("Request for setting bitstream_restrict flag in VUI failed");
+    DEBUG_PRINT_ERROR("Request for setting bitstream_restrict flag in VUI failed");*/
     return false;
-  }
+  //}
   return true;
 }
 

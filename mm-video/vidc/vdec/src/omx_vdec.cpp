@@ -5643,8 +5643,7 @@ OMX_ERRORTYPE  omx_vdec::allocate_buffer(OMX_IN OMX_HANDLETYPE                hC
     }
     else if(port == OMX_CORE_OUTPUT_PORT_INDEX)
     {
-      eRet = client_buffers.allocate_buffers_color_convert(hComp,bufferHdr,port,
-                                                           appData,bytes);
+      eRet = allocate_output_buffer(hComp,bufferHdr,port,appData,bytes);
     }
     else
     {
